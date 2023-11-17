@@ -16,6 +16,51 @@
     margin-right: 20px;
 }
 
+.category{
+    width: 230px;
+    overflow: hidden;
+    margin-top: 40px;
+    margin-left:-32px;
+}
+
+.category li{
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    line-height: 40px;
+    background-color: darkgrey;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.category li:hover{
+    background-color: lightgrey;
+    transition-duration: 0.5s;
+}
+
+.category li:hover .subcategory{
+    height: 250px;
+    transition-duration: 1s;
+}
+
+.category a{
+    text-decoration: none;
+    font-size: 14px;
+    color: #fff;
+    margin-left: 10px;
+}
+
+.subcategory li{
+    line-height: 50px;
+    background-color: lightgrey;
+    text-align: left;
+}
+
+.subcategory {
+    height: 0;
+    overflow: hidden;
+}
+
 .categoryContainer, .contentContainer, .emailContainer{
     margin-bottom: 10px;
 }

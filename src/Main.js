@@ -9,6 +9,41 @@ function Main() {
         </div>
         <div className='mainContainer'>
             <div className="categoryContainer">
+              <ul class="category">
+                <li>
+                  <a href="#">수업</a>
+                  <ul class="subcategory">
+                    <li><a href="#">질문</a></li>
+                    <li><a href="#">성적</a></li>
+                    <li><a href="#">과제</a></li>
+                    <li><a href="#">기타</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">출결</a>
+                  <ul class="subcategory">
+                    <li><a href="#">병결</a></li>
+                    <li><a href="#">예비군</a></li>
+                    <li><a href="#">기타</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">카테고리3</a>
+                  <ul class="subcategory">
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">카테고리4</a>
+                  <ul class="subcategory">
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                  </ul>
+                </li>
+              </ul>
             </div>
 
             <div className="contentContainer">
