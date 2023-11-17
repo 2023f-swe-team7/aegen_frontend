@@ -1,4 +1,6 @@
 import './sign_up.css';
+import React from 'react';
+import {Link} from 'react-router-dom';
 
 function SignUp() {
   return (
@@ -29,7 +31,9 @@ function SignUp() {
                 <h3> </h3>
                 <input></input>
             </div>
-            
+            <Link to="/">
+              <button>회원가입</button>
+            </Link>
         </div>
     </div>
   );
