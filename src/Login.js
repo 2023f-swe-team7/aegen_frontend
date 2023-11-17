@@ -1,5 +1,7 @@
 import logo from './img/swe_logo.png';
 import './Login.css';
+import React from 'react';
+import {Link} from 'react-router-dom';
 
 function Login() {
   return (
@@ -12,7 +14,9 @@ function Login() {
                 <input placeholder='password'></input>
                 <div className="buttonContainer">
                   <button>로그인</button>
-                  <button>회원가입</button>
+                  <Link to="/signup">
+                    <button>회원가입</button>
+                  </Link>
                 </div>
             </div>
         </div>
