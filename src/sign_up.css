@@ -1,3 +1,35 @@
-h2 {
-    color: black;
+.SignUp {
+    background-color: #BCD9F4;
+    height: 100vh;
+}
+
+.header {
+    background-color: #024583;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.header h2 {
+    padding-left: 20px;
+    font-size: 30px;
+}
+
+.signupContainer {
+    background-color: white;
+    height:600px;
+    width: 90vw;
+    border-radius: 30px;
+    margin-left: 70px;
+}
+
+.infoContainer {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    text-align: center;
+    padding-right: 20px;
+    row-gap: 20px;
+
 }
