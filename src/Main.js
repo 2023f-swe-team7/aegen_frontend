@@ -10,10 +10,14 @@ function Main() {
         <div className='mainContainer'>
             <div className="categoryContainer">
             </div>
-            <input placeholder='과목을 선택해 주세요'></input>
-            <input placeholder='받는 사람'></input>
+
+            <div className="contentContainer">
+              <input placeholder='과목을 선택해 주세요'></input>
+              <input placeholder='받는 사람'></input>
+            </div>
+            
             <div className='emailContainer'>
-                <input></input>
+                <input placeholder='emailContainer'></input>
             </div>
         </div>
     </div>
