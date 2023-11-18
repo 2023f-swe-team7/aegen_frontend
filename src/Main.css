@@ -25,7 +25,7 @@
 
 .category li{
     list-style: none;
-    width: 100%;
+    width: 90%;
     text-align: center;
     line-height: 40px;
     background-color: rgb(153, 152, 152);
@@ -180,6 +180,8 @@
     font-size: 15px;
     border-radius: 10px;
     margin-top: 5%;
+    white-space: pre;
+    word-break: break-all;
   }
 
   .buttonContainer2{
