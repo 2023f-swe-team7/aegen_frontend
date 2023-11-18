@@ -40,7 +40,7 @@
 }
 
 .category li:hover .subcategory{
-    height: 250px;
+    height: 210px;
     transition-duration: 1s;
 }
 

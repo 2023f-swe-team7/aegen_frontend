@@ -10,22 +10,22 @@ function Main() {
 
   const getPlaceholder = () => {
     switch(state) {
-      case '질문':
-        return '질문';
+      case '수업':
+        return '수업';
       case '시험':
         return '시험';
-      case '결석':
-        return '결석';
-      case '병결':
-        return '병결';
+      case '질병':
+        return '질병';
       case '예비군':
         return '예비군';
-      case '가족상':
-        return '가족상';
-      case '제출':
-        return '제출';
-      case '점수 문의':
-        return '점수 문의';
+      case '장례식':
+        return '장례식';
+      case '과제 제출':
+        return '과제 제출';
+      case '과제 성적 문의':
+        return '과제 성적 문의';
+      case '과제 질문':
+        return '과제 질문';
       case '연구실 면담':
         return '연구실 면담';
       case '진로 상담':
@@ -34,6 +34,8 @@ function Main() {
         return '기타 문의';
       case '기타':
         return '기타';
+      case '그외':
+        return '그외';
       case '소프트웨어공학개론':
         return '소프트웨어공학개론';
       case '운영체제':
@@ -88,27 +90,25 @@ function Main() {
                 <li>
                   <a href="#">수업</a>
                   <ul className="subcategory">
-                    <li><a href="#" onClick={() => handleClick('질문')}>질문</a></li>
+                    <li><a href="#" onClick={() => handleClick('수업')}>질문</a></li>
                     <li><a href="#" onClick={() => handleClick('시험')}>시험</a></li>
-                    <li><a href="#" onClick={() => handleClick('결석')}>결석</a></li>
-                    <li><a href="#" onClick={() => handleClick('기타')}>기타</a></li>
                   </ul>
                 </li>
                 <li>
                   <a href="#">출결</a>
                   <ul className="subcategory">
-                    <li><a href="#" onClick={() => handleClick('병결')}>병결</a></li>
+                    <li><a href="#" onClick={() => handleClick('질병')}>병결</a></li>
                     <li><a href="#" onClick={() => handleClick('예비군')}>예비군</a></li>
-                    <li><a href="#" onClick={() => handleClick('가족상')}>가족상</a></li>
-                    <li><a href="#" onClick={() => handleClick('기타')}>기타</a></li>
+                    <li><a href="#" onClick={() => handleClick('장례식')}>가족상</a></li>
+                    <li><a href="#" onClick={() => handleClick('그외')}>기타</a></li>
                   </ul>
                 </li>
                 <li>
                   <a href="#">과제</a>
                   <ul className="subcategory">
-                    <li><a href="#" onClick={() => handleClick('제출')}>제출</a></li>
-                    <li><a href="#" onClick={() => handleClick('점수 문의')}>점수 문의</a></li>
-                    <li><a href="#" onClick={() => handleClick('질문')}>질문</a></li>
+                    <li><a href="#" onClick={() => handleClick('과제 제출')}>제출</a></li>
+                    <li><a href="#" onClick={() => handleClick('과제 성적 문의')}>점수 문의</a></li>
+                    <li><a href="#" onClick={() => handleClick('과제 질문')}>질문</a></li>
                   </ul>
                 </li>
                 <li>
