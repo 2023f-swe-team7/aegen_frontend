@@ -1,6 +1,6 @@
 import './sign_up.css';
 import React, { useState } from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 function SignUp() {
 
@@ -14,6 +14,8 @@ function SignUp() {
   const [email, setEmail] = useState('');
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,6 +46,7 @@ function SignUp() {
     .then(data => {
         console.log(data);
         alert('회원가입이 성공적으로 완료되었습니다.');
+        navigate("/");
     })
     .catch(error => {
         console.error(error);
