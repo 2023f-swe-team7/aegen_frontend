@@ -136,9 +136,9 @@ function Main() {
               </div>
               <input className="receiver" value={receiverText} onChange={(e) => setReceiverText(e.target.value)}></input>
             </div>
-            
             <div className='emailContainer'>
-              <input placeholder={getPlaceholder()}></input>
+              <input placeholder={getPlaceholder()} className='email'></input>
+              <button>전송</button>
             </div>
         </div>
     </div>
