@@ -34,9 +34,47 @@ function Main() {
         return '기타 문의';
       case '기타':
         return '기타';
+      case '소프트웨어공학개론':
+        return '소프트웨어공학개론';
+      case '운영체제':
+        return '운영체제';
       default:
         return '';
     }
+  };
+
+  const Dropdown = props => {
+    const [visibilityAnimation, setVisiblitiyAnimation] = React.useState(false);
+    const [repeat, setRepeat] = React.useState(null);
+
+    React.useEffect(() => {
+      if(props.visibility) {
+        clearTimeout(repeat);
+        setRepeat(null);
+        setVisiblitiyAnimation(true);
+      } else {
+        setRepeat(setTimeout(() => {
+          setVisiblitiyAnimation(false);
+        }, 400));
+      }
+    }, [props.visibility]);
+
+    return (
+      <article className={`components-dropdown ${props.visibility ? 'slide-fade-in-dropdown' : 'slide-fade-out-dropdown'}`}>
+          { visibilityAnimation && props.children }
+      </article>
+    )
+  };
+
+  const [dropdownVisibility, setDropdownVisibility] = React.useState(false);
+
+  const [receiverText, setReceiverText] = useState('');
+  const [dropdownButtonText, setDropdownButtonText] = useState('과목을 선택해 주세요');
+
+  const handleDropdownSelecton = (subject) => {
+    setDropdownButtonText(subject);
+    setReceiverText(subject);
+    setDropdownVisibility(false);
   };
 
   return (
@@ -46,10 +84,10 @@ function Main() {
         </div>
         <div className='mainContainer'>
             <div className="categoryContainer">
-              <ul class="category">
+              <ul className="category">
                 <li>
                   <a href="#">수업</a>
-                  <ul class="subcategory">
+                  <ul className="subcategory">
                     <li><a href="#" onClick={() => handleClick('질문')}>질문</a></li>
                     <li><a href="#" onClick={() => handleClick('시험')}>시험</a></li>
                     <li><a href="#" onClick={() => handleClick('결석')}>결석</a></li>
@@ -58,7 +96,7 @@ function Main() {
                 </li>
                 <li>
                   <a href="#">출결</a>
-                  <ul class="subcategory">
+                  <ul className="subcategory">
                     <li><a href="#" onClick={() => handleClick('병결')}>병결</a></li>
                     <li><a href="#" onClick={() => handleClick('예비군')}>예비군</a></li>
                     <li><a href="#" onClick={() => handleClick('가족상')}>가족상</a></li>
@@ -67,7 +105,7 @@ function Main() {
                 </li>
                 <li>
                   <a href="#">과제</a>
-                  <ul class="subcategory">
+                  <ul className="subcategory">
                     <li><a href="#" onClick={() => handleClick('제출')}>제출</a></li>
                     <li><a href="#" onClick={() => handleClick('점수 문의')}>점수 문의</a></li>
                     <li><a href="#" onClick={() => handleClick('질문')}>질문</a></li>
@@ -75,7 +113,7 @@ function Main() {
                 </li>
                 <li>
                   <a href="#">기타</a>
-                  <ul class="subcategory">
+                  <ul className="subcategory">
                     <li><a href="#" onClick={() => handleClick('연구실 면담')}>연구실 면담</a></li>
                     <li><a href="#" onClick={() => handleClick('진로 상담')}>진로 상담</a></li>
                     <li><a href="#" onClick={() => handleClick('기타 문의')}>기타 문의</a></li>
@@ -85,8 +123,18 @@ function Main() {
             </div>
 
             <div className="contentContainer">
-              <input placeholder='과목을 선택해 주세요'></input>
-              <input placeholder='받는 사람'></input>
+              <div className="subjectContainer">
+                <button onClick={e => setDropdownVisibility(!dropdownVisibility)} className='dropdownButton'>
+                  {dropdownVisibility ? '' : dropdownButtonText}
+                </button>
+                <Dropdown visibility={dropdownVisibility}>
+                  <ul>
+                    <li><button className='listButton' onClick={() => handleDropdownSelecton("소프트웨어공학개론")}>소프트웨어공학개론</button></li>
+                    <li><button className='listButton' onClick={() => handleDropdownSelecton("운영체제")}>운영체제</button></li>
+                  </ul>
+                </Dropdown>
+              </div>
+              <input className="receiver" value={receiverText} onChange={(e) => setReceiverText(e.target.value)}></input>
             </div>
             
             <div className='emailContainer'>

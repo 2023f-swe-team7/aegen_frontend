@@ -83,3 +83,89 @@
     border-radius: 8px;
     background-color: lightgrey;
 }
+
+@keyframes slide-fade-in-dropdown-animation {
+    0% {
+      transform: translateY(-100%);
+    }
+  
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .slide-fade-in-dropdown {
+    overflow: hidden;
+  }
+  
+  .slide-fade-in-dropdown > ul {
+    animation: slide-fade-in-dropdown-animation .4s ease;
+  }
+  
+  @keyframes slide-fade-out-dropdown-animation {
+    0% {
+      transform: translateY(0);
+    }
+  
+    100% {
+      transform: translateY(-100%);
+    }
+  }
+  
+  .slide-fade-out-dropdown {
+    overflow: hidden;
+  }
+  
+  .slide-fade-out-dropdown > ul {
+    animation: slide-fade-out-dropdown-animation 0.4s ease;
+    animation-fill-mode: forwards;
+  }
+  
+  .components-dropdown > ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: 0;
+    margin-bottom: 5px;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .dropdownButton {
+    width: 600px;
+    border: 0.5px solid black;
+    text-align: left;
+    margin-right: 10px;
+    height: 50px;
+    border-radius: 10px;
+  }
+
+  .contentContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .subjectContainer {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .contentContainer input {
+    margin-left: 10px;
+    width: 600px;
+    height: 50px;
+    border-radius: 10px;
+    border: 0.5px solid black;
+  }
+
+  .listButton {
+    width: 600px;
+    border: none;
+    border-radius: 10px;
+    background-color: #E8E8E8;
+    text-align: left;
+    height: 30px;
+    margin-bottom: 2px;
+  }
