@@ -8,7 +8,9 @@ function Main() {
     setState(value);
   };
 
-  const getPlaceholder = () => {
+  const [emailResponse, setEmail] = useState('');
+
+  const getCategory = () => {
     switch(state) {
       case '수업':
         return '수업';
@@ -79,6 +81,25 @@ function Main() {
     setDropdownVisibility(false);
   };
 
+  const sendRequest = () => {
+    console.log(receiverText)
+    console.log(state)
+    fetch(`http://aegen.scg.skku.ac.kr/v1/mail?subject=${encodeURIComponent(receiverText)}&type=${encodeURIComponent(state)}eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6InRlc3RJZCIsImlhdCI6MTcwMDI3MTY1NSwiZXhwIjoxNzAwMzU4MDU1fQ.Ob0zOeSg9xH7SvFMR9sLTsogZW3sw7sSLc_KaChvouI`, {
+      method: 'GET',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+    })
+    .then(response => response.json())
+    .then(data => {
+      setEmail(data);
+      console.log(data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+  };
+
   return (
     <div className="Main">
         <div className='header'>
@@ -136,9 +157,13 @@ function Main() {
               </div>
               <input className="receiver" value={receiverText} onChange={(e) => setReceiverText(e.target.value)}></input>
             </div>
+
             <div className='emailContainer'>
-              <input placeholder={getPlaceholder()} className='email'></input>
-              <button>전송</button>
+              <input value={emailResponse} className='email'></input>
+              <div className='buttonContainer2'>
+                <button>이메일 생성</button>
+                <button>전송</button>
+              </div>
             </div>
         </div>
     </div>
