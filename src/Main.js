@@ -176,7 +176,10 @@ const handleSendEmail = async () => {
                 className="email"
                 onChange={(e) => updateEmailText(e.target.value)}
               ></textarea>
-                <button onClick={handleSendEmail}>전송</button>
+                <div className='buttonContainer2'>
+                  <button>메일 생성</button>
+                  <button onClick={handleSendEmail}>전송</button>
+                </div>
             </div>
         </div>
     </div>
