@@ -4,6 +4,7 @@ COPY . /build
 WORKDIR /build
 
 RUN npm install
+RUN npm install axios
 RUN npm install -g serve
 RUN npm run build
 

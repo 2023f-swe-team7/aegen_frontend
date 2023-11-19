@@ -1,6 +1,7 @@
 {
   "name": "aegen",
   "version": "0.1.0",
+  "proxy": "http://aegen.scg.skku.ac.kr",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",

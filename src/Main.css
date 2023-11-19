@@ -184,15 +184,21 @@
     word-break: break-all;
   }
 
-  .emailContainer button {
-    width: 10%;
-    height: 7%;
+  .buttonContainer2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-left: 65%;
+    margin-bottom: 1%;
+  }
+
+  .buttonContainer2 button {
+    width: 130px;
+    height: 60px;
     border: none;
     border-radius: 10px;
     background-color: #BDC1C6;
     font-size: 20px;
-    margin-left: 80%;
-    margin-top: 2%;
   }
 
   .category a {
