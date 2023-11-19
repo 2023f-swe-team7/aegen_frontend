@@ -1,34 +1,31 @@
 import logo from './img/swe_logo.png';
 import './Login.css';
-import React from 'react';
+import React, { useState } from 'react';
 import {Link, useNavigate} from 'react-router-dom';
-import axios from 'axios';
 
 function Login() {
-  const [id, setId] = React.useState('');
-  const [password, setPassword] = React.useState('');
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleLogin = async() => {
-    try {
-      const response = await axios.post("http://aegen.skku.ac.kr/v1/auth/login", {
-        id: id,
-        password: password,
+  async function handleLogin() {
+    try{
+      const response = await fetch('/v1/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          id: id,
+          password: password
+        }),
       });
-
-      console.log("로그인 성공", response.data);
-    } catch(error) {
-      console.error("로그인 실패", error.message);
-    }
-  };
-
-  const handleLogin1 =() => {
-    console.log(id);
-    console.log(password);
-    if(id == "test" && password == "1234") {
+  
+      if(!response.ok){
+        throw new Error('Login failed');
+      }
       navigate("/main");
-    } else {
-      alert("로그인 실패");
+    }catch (error){
+      console.error(error);
+      alert('로그인에 실패하였습니다.');
     }
   }
 
@@ -38,20 +35,10 @@ function Login() {
             <img src={logo}/>
             <div className="inputContainer">
                 <h2>AEGEN</h2>
-                <input 
-                type = "text"
-                placeholder='ID'
-                value={id}
-                onChange={(e) => setId(e.target.value)}
-                ></input>
-                <input
-                type="password" 
-                placeholder='password'
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                ></input>
+                <input placeholder='ID' onChange={e => setId(e.target.value)}></input>
+                <input placeholder='password' onChange={e => setPassword(e.target.value)}></input>
                 <div className="buttonContainer">
-                  <button onClick={handleLogin1}>로그인</button>
+                  <button onClick={handleLogin}>로그인</button>
                   <Link to="/signup">
                     <button>회원가입</button>
                   </Link>
@@ -61,5 +48,4 @@ function Login() {
     </div>
   );
 }
-
 export default Login;
