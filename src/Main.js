@@ -93,21 +93,16 @@ function Main() {
                 <li>
                   <a href="#">수업</a>
                   <ul className="subcategory">
-                    <li><a href="#" onClick={() => handleClick('질문')}>질문</a></li>
                     <li><a href="#" onClick={() => handleClick('수업')}>질문</a></li>
                     <li><a href="#" onClick={() => handleClick('시험')}>시험</a></li>
-                    <li><a href="#" onClick={() => handleClick('결석')}>결석</a></li>
                     <li><a href="#" onClick={() => handleClick('기타')}>기타</a></li>
                   </ul>
                 </li>
                 <li>
                   <a href="#">출결</a>
                   <ul className="subcategory">
-                    <li><a href="#" onClick={() => handleClick('병결')}>병결</a></li>
                     <li><a href="#" onClick={() => handleClick('질병')}>병결</a></li>
                     <li><a href="#" onClick={() => handleClick('예비군')}>예비군</a></li>
-                    <li><a href="#" onClick={() => handleClick('가족상')}>가족상</a></li>
-                    <li><a href="#" onClick={() => handleClick('기타')}>기타</a></li>
                     <li><a href="#" onClick={() => handleClick('장례식')}>가족상</a></li>
                     <li><a href="#" onClick={() => handleClick('그외')}>기타</a></li>
                   </ul>
@@ -115,9 +110,6 @@ function Main() {
                 <li>
                   <a href="#">과제</a>
                   <ul className="subcategory">
-                    <li><a href="#" onClick={() => handleClick('제출')}>제출</a></li>
-                    <li><a href="#" onClick={() => handleClick('점수 문의')}>점수 문의</a></li>
-                    <li><a href="#" onClick={() => handleClick('질문')}>질문</a></li>
                     <li><a href="#" onClick={() => handleClick('과제 제출')}>제출</a></li>
                     <li><a href="#" onClick={() => handleClick('과제 성적 문의')}>점수 문의</a></li>
                     <li><a href="#" onClick={() => handleClick('과제 질문')}>질문</a></li>
@@ -148,7 +140,7 @@ function Main() {
               <input className="receiver" value={receiverText} onChange={(e) => setReceiverText(e.target.value)}></input>
             </div>
             <div className='emailContainer'>
-              <input placeholder={getPlaceholder()} className='email'></input>
+              <textarea defaultValue={getPlaceholder()} className="email"></textarea>
               <button>전송</button>
             </div>
         </div>
