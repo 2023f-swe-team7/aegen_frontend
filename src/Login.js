@@ -18,7 +18,6 @@ function Login() {
           password: password
         }),
       });
-  
       if(!response.ok){
         throw new Error('Login failed');
       }
