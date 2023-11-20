@@ -3,13 +3,17 @@ import React, { useState } from 'react';
 import axios from 'axios';
 function Main() {
   const [state, setState] = useState('');
+  const [category, setCategory] = useState('');
   const [emailText, setEmailText] = useState('');
   const accessToken = localStorage.getItem('accessToken');
-  console.log(accessToken)
 
   const handleClick = (value) => {
     setState(value);
   };
+
+  function handleCategory(value) {
+    setCategory(value);
+  }
 
   const getPlaceholder = () => {
     switch(state) {
@@ -127,34 +131,34 @@ function Main() {
                 <li>
                   <a href="#">수업</a>
                   <ul className="subcategory">
-                    <li><a href="#" onClick={() => handleClick('수업')}>질문</a></li>
-                    <li><a href="#" onClick={() => handleClick('시험')}>시험</a></li>
-                    <li><a href="#" onClick={() => handleClick('기타')}>기타</a></li>
+                    <li><a href="#" onClick={(e) => {handleClick('수업'); handleCategory('수업 > 질문')}}>질문</a></li>
+                    <li><a href="#" onClick={(e) => {handleClick('시험'); handleCategory('수업 > 시험')}}>시험</a></li>
+                    <li><a href="#" onClick={(e) => {handleClick('기타'); handleCategory('수업 > 기타')}}>기타</a></li>
                   </ul>
                 </li>
                 <li>
                   <a href="#">출결</a>
                   <ul className="subcategory">
-                    <li><a href="#" onClick={() => handleClick('질병')}>병결</a></li>
-                    <li><a href="#" onClick={() => handleClick('예비군')}>예비군</a></li>
-                    <li><a href="#" onClick={() => handleClick('장례식')}>가족상</a></li>
-                    <li><a href="#" onClick={() => handleClick('그외')}>기타</a></li>
+                    <li><a href="#" onClick={(e) => {handleClick('질병'); handleCategory('출결 > 병결')}}>병결</a></li>
+                    <li><a href="#" onClick={(e) => {handleClick('예비군'); handleCategory('출결 > 예비군')}}>예비군</a></li>
+                    <li><a href="#" onClick={(e) => {handleClick('장례식'); handleCategory('출결 > 가족상')}}>가족상</a></li>
+                    <li><a href="#" onClick={(e) => {handleClick('그외'); handleCategory('출결 > 기타')}}>기타</a></li>
                   </ul>
                 </li>
                 <li>
                   <a href="#">과제</a>
                   <ul className="subcategory">
-                    <li><a href="#" onClick={() => handleClick('과제 제출')}>제출</a></li>
-                    <li><a href="#" onClick={() => handleClick('과제 성적 문의')}>점수 문의</a></li>
-                    <li><a href="#" onClick={() => handleClick('과제 질문')}>질문</a></li>
+                    <li><a href="#" onClick={(e) => {handleClick('과제 제출'); handleCategory('과제 > 제출')}}>제출</a></li>
+                    <li><a href="#" onClick={(e) => {handleClick('과제 성적 문의'); handleCategory('과제 > 점수 문의')}}>점수 문의</a></li>
+                    <li><a href="#" onClick={(e) => {handleClick('과제 질문'); handleCategory('과제 > 질문')}}>질문</a></li>
                   </ul>
                 </li>
                 <li>
                   <a href="#">기타</a>
                   <ul className="subcategory">
-                    <li><a href="#" onClick={() => handleClick('연구실 면담')}>연구실 면담</a></li>
-                    <li><a href="#" onClick={() => handleClick('진로 상담')}>진로 상담</a></li>
-                    <li><a href="#" onClick={() => handleClick('기타 문의')}>기타 문의</a></li>
+                    <li><a href="#" onClick={(e) => {handleClick('연구실 면담'); handleCategory('기타 > 연구실 면담')}}>연구실 면담</a></li>
+                    <li><a href="#" onClick={(e) => {handleClick('진로 상담'); handleCategory('기타 > 진로 상담')}}>진로 상담</a></li>
+                    <li><a href="#" onClick={(e) => {handleClick('기타 문의'); handleCategory('기타 > 기타 문의')}}>기타 문의</a></li>
                   </ul>
                 </li>
               </ul>
@@ -174,14 +178,19 @@ function Main() {
               <input className="receiver" value={receiverText} onChange={(e) => setReceiverText(e.target.value)}></input>
             </div>
             <div className='emailContainer'>
-              <textarea defaultValue={getPlaceholder()}
+              <textarea
                 className="email"
                 onChange={(e) => updateEmailText(e.target.value)}
               ></textarea>
+              <div className='otherContainer'>
+                <div className='CategoryViewer'>
+                  <p>{`category: ${category}`}</p>
+                </div>
                 <div className='buttonContainer2'>
                   <button>메일 생성</button>
                   <button onClick={handleSendEmail}>전송</button>
                 </div>
+              </div>
             </div>
         </div>
     </div>

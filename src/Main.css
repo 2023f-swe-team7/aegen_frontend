@@ -188,8 +188,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
-    margin-left: 65%;
-    margin-bottom: 1%;
+    margin-left: 170%;
+    margin-bottom: 3%;
   }
 
   .buttonContainer2 button {
@@ -199,6 +199,20 @@
     border-radius: 10px;
     background-color: #BDC1C6;
     font-size: 20px;
+    margin-top: 10px;
+  }
+
+  .otherContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .CategoryViewer{
+    font-size: 30px;
+    margin-left: -220px;
+    margin-top: -20px;
+    font-family: sans-serif;
+    position: absolute;
   }
 
   .category a {
