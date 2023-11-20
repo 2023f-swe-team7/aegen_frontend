@@ -4,6 +4,8 @@ import axios from 'axios';
 function Main() {
   const [state, setState] = useState('');
   const [emailText, setEmailText] = useState('');
+  const accessToken = localStorage.getItem('accessToken');
+  console.log(accessToken)
 
   const handleClick = (value) => {
     setState(value);

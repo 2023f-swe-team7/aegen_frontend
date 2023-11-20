@@ -21,6 +21,8 @@ function Login() {
       if(!response.ok){
         throw new Error('Login failed');
       }
+      const data = await response.json();
+      localStorage.setItem('accessToken', data.accessToken);
       navigate("/main");
     }catch (error){
       console.error(error);
@@ -35,7 +37,7 @@ function Login() {
             <div className="inputContainer">
                 <h2>AEGEN</h2>
                 <input placeholder='ID' onChange={e => setId(e.target.value)}></input>
-                <input placeholder='password' onChange={e => setPassword(e.target.value)}></input>
+                <input placeholder='password' onChange={e => setPassword(e.target.value)} type="password"></input>
                 <div className="buttonContainer">
                   <button onClick={handleLogin}>로그인</button>
                   <Link to="/signup">
