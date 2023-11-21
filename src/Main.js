@@ -85,11 +85,20 @@ function Main() {
       });
 
       const response = await axios.post('http://localhost:4000/v1/mail/send', {
-        receiver: "sunwoong89@g.skku.edu", // 교수님 메일 -> professorEmail 변수 사용
-        subject: "제목", // 이메일 제목 변수 -> emailTopic
-        text: "내용" // 이메일 내용 변수 -> emailText
-      });
-
+        receiver: "kimdozz01@gmail.com",
+        subject: "[SWE3002_42] 수업 결석 관련 문의",
+        text: `안녕하세요, 차수영 교수님,
+    
+저는 현재 교수님의 소프트웨어공학개론[SWE3002_42] 수업을 듣고 있는 소프트웨어학과의 김도연(2019312123)이라고 합니다.
+    
+제가 가까운 친척의 장례식에 참석해야 하는 사정이 생겨 이로 인해 이번 수업에 참석하는 것이 어려울 것 같습니다. 관련해서 제 출결이 어떻게 처리되는지 여쭈어보고 싶습니다.
+    
+관련한 문서를 아래 첨부하오니 참고해주시면 감사하겠습니다.
+    
+감사합니다.
+    
+김도연 올림`
+});
       console.log('이메일 전송 응답:', response.data);
       alert('메일이 성공적으로 전송되었습니다.');
     } catch (error) {
