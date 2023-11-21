@@ -84,7 +84,7 @@ function Main() {
         text: emailText
       });
 
-      const response = await axios.post('http://localhost:4000/v1/mail/send', {
+      const response = await axios.post('http://aegen.scg.skku.ac.kr/v1/mail/send', {
         receiver: "kimdozz01@gmail.com",
         subject: "[SWE3002_42] 수업 결석 관련 문의",
         text: `안녕하세요, 차수영 교수님,
