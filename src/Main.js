@@ -109,7 +109,7 @@ function Main() {
 
       const response = await axios.post('https://aegen.scg.skku.ac.kr/v1/mail/send', {
         receiver: "kimdozz01@gmail.com",
-        subject: "[SWE3004_42] 과제 성적 문의",
+        subject: "[운영체제] 과제 성적 문의",
         // [SWE3004_42] 과제 성적 문의
         text: email2
 });
