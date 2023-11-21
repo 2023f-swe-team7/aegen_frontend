@@ -18,54 +18,6 @@ function Main() {
     setCategory(value);
   }
 
-  const getPlaceholder = () => {
-    switch(state) {
-      case '질문':
-        return '질문';
-      case '수업':
-        return '수업';
-      case '시험':
-        return '시험';
-      case '결석':
-        return '결석';
-      case '병결':
-        return '병결';
-      case '질병':
-        return '질병';
-      case '예비군':
-        return '예비군';
-      case '가족상':
-        return '가족상';
-      case '제출':
-        return '제출';
-      case '점수 문의':
-        return '점수 문의';
-      case '장례식':
-        return '장례식';
-      case '과제 제출':
-        return '과제 제출';
-      case '과제 성적 문의':
-        return '과제 성적 문의';
-      case '과제 질문':
-        return '과제 질문';
-      case '연구실 면담':
-        return '연구실 면담';
-      case '진로 상담':
-        return '진로 상담';
-      case '기타 문의':
-        return '기타 문의';
-      case '기타':
-        return '기타';
-      case '그외':
-        return '그외';
-      case '소프트웨어공학개론':
-        return '소프트웨어공학개론';
-      case '운영체제':
-        return '운영체제';
-      default:
-        return '';
-    }
-  };
   const Dropdown = props => {
     const [visibilityAnimation, setVisiblitiyAnimation] = React.useState(false);
     const [repeat, setRepeat] = React.useState(null);
@@ -174,17 +126,17 @@ function Main() {
                 <li>
                   <a href="#">과제</a>
                   <ul className="subcategory">
-                    <li><a href="#" onClick={(e) => {handleClick('과제 제출'); handleCategory('과제 > 제출')}}>제출</a></li>
-                    <li><a href="#" onClick={(e) => {handleClick('과제 성적 문의'); handleCategory('과제 > 점수 문의')}}>점수 문의</a></li>
-                    <li><a href="#" onClick={(e) => {handleClick('과제 질문'); handleCategory('과제 > 질문')}}>질문</a></li>
+                    <li><a href="#" onClick={(e) => {handleClick('과제제출'); handleCategory('과제 > 제출')}}>제출</a></li>
+                    <li><a href="#" onClick={(e) => {handleClick('과제성적문의'); handleCategory('과제 > 점수 문의')}}>점수 문의</a></li>
+                    <li><a href="#" onClick={(e) => {handleClick('과제질문'); handleCategory('과제 > 질문')}}>질문</a></li>
                   </ul>
                 </li>
                 <li>
                   <a href="#">기타</a>
                   <ul className="subcategory">
-                    <li><a href="#" onClick={(e) => {handleClick('연구실 면담'); handleCategory('기타 > 연구실 면담')}}>연구실 면담</a></li>
-                    <li><a href="#" onClick={(e) => {handleClick('진로 상담'); handleCategory('기타 > 진로 상담')}}>진로 상담</a></li>
-                    <li><a href="#" onClick={(e) => {handleClick('기타 문의'); handleCategory('기타 > 기타 문의')}}>기타 문의</a></li>
+                    <li><a href="#" onClick={(e) => {handleClick('연구실면담'); handleCategory('기타 > 연구실 면담')}}>연구실 면담</a></li>
+                    <li><a href="#" onClick={(e) => {handleClick('진로상담'); handleCategory('기타 > 진로 상담')}}>진로 상담</a></li>
+                    <li><a href="#" onClick={(e) => {handleClick('기타문의'); handleCategory('기타 > 기타 문의')}}>기타 문의</a></li>
                   </ul>
                 </li>
               </ul>
