@@ -7,6 +7,29 @@ function Main() {
   const [emailText, setEmailText] = useState('');
   const [emailTopic, setEmailTopic] = useState('');
   const [professorEmail, setprofessorEmail] = useState('');
+  const email1 = `안녕하세요, 차수영 교수님,
+    
+저는 현재 교수님의 소프트웨어공학개론[SWE3002_42] 수업을 듣고 있는 소프트웨어학과의 김도연(2019312123)이라고 합니다.
+      
+제가 가까운 친척의 장례식에 참석해야 하는 사정이 생겨 이로 인해 이번 수업에 참석하는 것이 어려울 것 같습니다. 
+관련해서 제 출결이 어떻게 처리되는지 여쭈어보고 싶습니다.
+      
+관련한 문서를 아래 첨부하오니 참고해주시면 감사하겠습니다.
+      
+감사합니다.
+      
+김도연 올림`
+
+  const email2 = `안녕하세요, 엄영익 교수님,
+
+저는 [운영체제] 수업을 듣고 있는 소프트웨어학과 학과의 [2019312123] 김도연입니다.
+
+제가 최근에 제출한 HW2 과제에 대한 성적을 확인하고 싶습니다. 
+과제 성적과 관련하여 4번 문제에서 감점된 부분에 질문이 있어 확인을 요청드리고 싶습니다.
+
+감사합니다.
+
+김도연 올림`;
 
   const accessToken = localStorage.getItem('accessToken');
 
@@ -86,18 +109,9 @@ function Main() {
 
       const response = await axios.post('https://aegen.scg.skku.ac.kr/v1/mail/send', {
         receiver: "kimdozz01@gmail.com",
-        subject: "[SWE3002_42] 수업 결석 관련 문의",
-        text: `안녕하세요, 차수영 교수님,
-    
-저는 현재 교수님의 소프트웨어공학개론[SWE3002_42] 수업을 듣고 있는 소프트웨어학과의 김도연(2019312123)이라고 합니다.
-    
-제가 가까운 친척의 장례식에 참석해야 하는 사정이 생겨 이로 인해 이번 수업에 참석하는 것이 어려울 것 같습니다. 관련해서 제 출결이 어떻게 처리되는지 여쭈어보고 싶습니다.
-    
-관련한 문서를 아래 첨부하오니 참고해주시면 감사하겠습니다.
-    
-감사합니다.
-    
-김도연 올림`
+        subject: "[SWE3002_42] 과제 성적 문의",
+        // [SWE3004_42] 과제 성적 문의
+        text: email1
 });
       console.log('이메일 전송 응답:', response.data);
       alert('메일이 성공적으로 전송되었습니다.');
