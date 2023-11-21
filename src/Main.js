@@ -29,7 +29,7 @@ function Main() {
 
 감사합니다.
 
-김도연 올림`;
+김도연 올림`
 
   const accessToken = localStorage.getItem('accessToken');
 
