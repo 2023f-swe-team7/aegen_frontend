@@ -25,9 +25,7 @@ function Main() {
 저는 [운영체제] 수업을 듣고 있는 소프트웨어학과 학과의 [2019312123] 김도연입니다.
 
 제가 최근에 제출한 HW2 과제에 대한 성적을 확인하고 싶습니다. 
-과제 성적과 관련하여 4번 문제에서 감점된 부분에 질문이 있어 확인을 요청드리고 싶습니다.
-
-감사합니다.
+과제 성적과 관련하여 4번 문제에서 감점된 부분에 질문이 있어 확인을 요청드리고 싶습니다. 감사합니다.
 
 김도연 올림`;
 
@@ -109,9 +107,9 @@ function Main() {
 
       const response = await axios.post('https://aegen.scg.skku.ac.kr/v1/mail/send', {
         receiver: "kimdozz01@gmail.com",
-        subject: "[SWE3002_42] 수업 결석 관련 문의",
+        subject: "[SWE3004_42] 과제 성적 문의",
         // [SWE3004_42] 과제 성적 문의
-        text: email1
+        text: email2
 });
       console.log('이메일 전송 응답:', response.data);
       alert('메일이 성공적으로 전송되었습니다.');
