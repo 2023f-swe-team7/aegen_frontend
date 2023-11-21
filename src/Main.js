@@ -134,8 +134,8 @@ function Main() {
 
       const response = await axios.post('http://localhost:4000/v1/mail/send', {
         receiver: "sunwoong89@g.skku.edu", // 교수님 메일 -> professorEmail 변수 사용
-        subject: emailTopic,
-        text: emailText
+        subject: "제목", // 이메일 제목 변수 -> emailTopic
+        text: "내용" // 이메일 내용 변수 -> emailText
       });
 
       console.log('이메일 전송 응답:', response.data);
