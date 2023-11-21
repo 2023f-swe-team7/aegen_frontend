@@ -5,6 +5,9 @@ function Main() {
   const [state, setState] = useState('');
   const [category, setCategory] = useState('');
   const [emailText, setEmailText] = useState('');
+  const [emailTopic, setEmailTopic] = useState('');
+  const [professorEmail, setprofessorEmail] = useState('');
+
   const accessToken = localStorage.getItem('accessToken');
 
   const handleClick = (value) => {
@@ -97,19 +100,42 @@ function Main() {
     setEmailText(newText);
   };
 
+  const handleGenerateEmail = async () => {
+    try {
+      const response = await axios.get('https://aegen.scg.skku.ac.kr/v1/mail', {
+        headers: {
+          Authorization: `Bearer ${accessToken}`
+        },
+        params: {
+          subject: receiverText,
+          type: state
+        }
+      });
+      
+      setEmailText(response.data.mail.replace(/\\n/g, '\n'));
+      setprofessorEmail(response.data.professorEmail);
+      const parts = response.data.mail.split('제목');
+      setEmailTopic(parts[1].split('\\')[0]);
+      console.log(emailTopic)
+
+    } catch (error) {
+      console.error('메일 생성 오류:', error);
+      alert("카테고리와 과목 선택 여부를 확인해주세요.")
+    }
+  };
+
   // 메일 전송 버튼 클릭 핸들러
   const handleSendEmail = async () => {
     try {
       console.log('이메일 전송 요청:', {
-        receiver: receiverText,
-        subject: '메일 제목',
+        topic: emailTopic,
         text: emailText
       });
 
       const response = await axios.post('http://localhost:4000/v1/mail/send', {
-        receiver: "kimdozz01@gmail.com", // 수신자 주소는 원하는 주소로 바꾸고 테스트하시면 됩니다 (도연)
-        subject: '소프트웨어공학개론 수업 결석 관련 문의(질병)',
-        text: "안녕하세요, 서의성 교수님, \n저는 현재 교수님의 운영체제 수업을 듣고 있는 소프트웨어학과의 김율전(학번: 2021123456라고 합니다. \n다름이 아니라 제가 최근에 질병을 앓게 되었고, 이로 인해 이번 수업에 참석하는 것이 어려울 것 같습니다. \n관련해서 이번 결석을 병결로 처리해주실 수 있는지 여쭈어보고 싶습니다. \n제 상황으로 인해 교수님께 불편함을 드려 죄송합니다. \n관련한 문서를 아래 첨부하오니 참고해주시면 감사하겠습니다. \n감사합니다. \n김율전 올림'"
+        receiver: "sunwoong89@g.skku.edu", // 교수님 메일 -> professorEmail 변수 사용
+        subject: emailTopic,
+        text: emailText
       });
 
       console.log('이메일 전송 응답:', response.data);
@@ -175,11 +201,12 @@ function Main() {
                   </ul>
                 </Dropdown>
               </div>
-              <input className="receiver" value={receiverText} onChange={(e) => setReceiverText(e.target.value)}></input>
+              <input className="receiver" value={professorEmail} onChange={(e) => setprofessorEmail(e.target.value)}></input>
             </div>
             <div className='emailContainer'>
-              <textarea
+              <textarea 
                 className="email"
+                value={emailText}
                 onChange={(e) => updateEmailText(e.target.value)}
               ></textarea>
               <div className='otherContainer'>
@@ -187,7 +214,7 @@ function Main() {
                   <p>{`category: ${category}`}</p>
                 </div>
                 <div className='buttonContainer2'>
-                  <button>메일 생성</button>
+                  <button onClick={handleGenerateEmail}>메일 생성</button>
                   <button onClick={handleSendEmail}>전송</button>
                 </div>
               </div>
